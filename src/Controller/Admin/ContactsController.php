@@ -1,9 +1,10 @@
 <?php
 
-namespace Croogo\Contacts\Controller;
+namespace Croogo\Contacts\Controller\Admin;
 
 use App\Network\Email\Email;
 use Contacts\Controller\ContactsAppController;
+
 /**
  * Contacts Controller
  *

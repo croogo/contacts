@@ -1,8 +1,9 @@
 <?php
 
-namespace Croogo\Contacts\Model;
+namespace Croogo\Contacts\Model\Table;
 
 use Contacts\Model\ContactsAppModel;
+
 /**
  * Contact
  *
@@ -13,7 +14,7 @@ use Contacts\Model\ContactsAppModel;
  * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link     http://www.croogo.org
  */
-class Contact extends ContactsAppModel {
+class ContactsTable extends ContactsAppModel {
 
 /**
  * Model name

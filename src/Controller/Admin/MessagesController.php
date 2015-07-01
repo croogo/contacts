@@ -1,8 +1,9 @@
 <?php
 
-namespace Croogo\Contacts\Controller;
+namespace Croogo\Contacts\Controller\Admin;
 
 use Contacts\Controller\ContactsAppController;
+
 /**
  * Messages Controller
  *
@@ -61,7 +62,7 @@ class MessagesController extends ContactsAppController {
  * @return void
  * @access public
  */
-	public function admin_index() {
+	public function index() {
 		$this->set('title_for_layout', __d('croogo', 'Messages'));
 		$this->Prg->commonProcess();
 
@@ -83,7 +84,7 @@ class MessagesController extends ContactsAppController {
  * @return void
  * @access public
  */
-	public function admin_edit($id = null) {
+	public function edit($id = null) {
 		$this->set('title_for_layout', __d('croogo', 'Edit Message'));
 
 		if (!$id && empty($this->request->data)) {
@@ -110,7 +111,7 @@ class MessagesController extends ContactsAppController {
  * @return void
  * @access public
  */
-	public function admin_delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__d('croogo', 'Invalid id for Message'), 'flash', array('class' => 'error'));
 			return $this->redirect(array('action' => 'index'));
@@ -127,7 +128,7 @@ class MessagesController extends ContactsAppController {
  * @return void
  * @access public
  */
-	public function admin_process() {
+	public function process() {
 		$Message = $this->{$this->modelClass};
 		list($action, $ids) = $this->BulkProcess->getRequestVars($Message->alias);
 
