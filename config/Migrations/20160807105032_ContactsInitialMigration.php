@@ -1,22 +1,12 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CroogoContactsInitialMigration extends AbstractMigration
+class ContactsInitialMigration extends AbstractMigration
 {
-
-    public $autoId = false;
-
     public function up()
     {
-        $table = $this->table('contacts');
-        $table
-            ->addColumn('id', 'integer', [
-                'autoIncrement' => true,
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
-            ->addPrimaryKey(['id'])
+
+        $this->table('contacts')
             ->addColumn('title', 'string', [
                 'default' => null,
                 'limit' => 255,
@@ -83,12 +73,12 @@ class CroogoContactsInitialMigration extends AbstractMigration
                 'null' => true,
             ])
             ->addColumn('message_status', 'boolean', [
-                'default' => 1,
+                'default' => true,
                 'limit' => null,
                 'null' => false,
             ])
             ->addColumn('message_archive', 'boolean', [
-                'default' => 1,
+                'default' => true,
                 'limit' => null,
                 'null' => false,
             ])
@@ -98,22 +88,22 @@ class CroogoContactsInitialMigration extends AbstractMigration
                 'null' => false,
             ])
             ->addColumn('message_spam_protection', 'boolean', [
-                'default' => 0,
+                'default' => false,
                 'limit' => null,
                 'null' => false,
             ])
             ->addColumn('message_captcha', 'boolean', [
-                'default' => 0,
+                'default' => false,
                 'limit' => null,
                 'null' => false,
             ])
             ->addColumn('message_notify', 'boolean', [
-                'default' => 1,
+                'default' => true,
                 'limit' => null,
                 'null' => false,
             ])
             ->addColumn('status', 'boolean', [
-                'default' => 1,
+                'default' => true,
                 'limit' => null,
                 'null' => false,
             ])
@@ -139,15 +129,7 @@ class CroogoContactsInitialMigration extends AbstractMigration
             ])
             ->create();
 
-        $table = $this->table('messages');
-        $table
-            ->addColumn('id', 'integer', [
-                'autoIncrement' => true,
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
-            ->addPrimaryKey(['id'])
+        $this->table('messages')
             ->addColumn('contact_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
@@ -194,7 +176,7 @@ class CroogoContactsInitialMigration extends AbstractMigration
                 'null' => true,
             ])
             ->addColumn('status', 'boolean', [
-                'default' => 0,
+                'default' => false,
                 'limit' => null,
                 'null' => false,
             ])
@@ -219,7 +201,6 @@ class CroogoContactsInitialMigration extends AbstractMigration
                 'null' => true,
             ])
             ->create();
-
     }
 
     public function down()
